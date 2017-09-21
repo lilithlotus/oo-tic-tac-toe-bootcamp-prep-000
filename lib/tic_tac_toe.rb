@@ -128,5 +128,5 @@ def display_board(board)
    elsif draw?(board)
      puts "Cat's Game!"
    end
-
+end
 end
