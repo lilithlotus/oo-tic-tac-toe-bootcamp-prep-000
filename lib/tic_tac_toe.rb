@@ -30,7 +30,7 @@ def display_board(board)
    !(board[index].nil? || board[index] == " ")
  end
 
- def valid_move?(board, index)
+ def valid_move?(board, index, char)
    if index.between?(0, 8)  && position_taken?(board, index) == false
      return true
    else
