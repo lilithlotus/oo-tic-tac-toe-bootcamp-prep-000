@@ -4,7 +4,7 @@ class TicTacToe
   end
 
   def board=(board)
-    @board = board
+    @board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
   end
 
   def board
