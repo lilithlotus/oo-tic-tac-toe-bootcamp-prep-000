@@ -49,14 +49,14 @@ def display_board
      move(index, current_player)
    else
      puts "Invalid input."
-     turn(board)
+     turn
    end
-   display_board(board)
+   display_board
  end
 
- def turn_count(board)
+ def turn_count
    counter = 0
-   board.each do |plays|
+   @board.each do |plays|
      if plays == "X" || plays == "O"
        counter += 1
      end
