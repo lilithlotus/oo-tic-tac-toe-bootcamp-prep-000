@@ -25,5 +25,29 @@ def display_board(board)
  def move(board, index, char)
   board[index] = char
  end
+ 
+ def position_taken?(board, index)
+   !(board[index].nil? || board[index] == " ")
+ end
+
+ def valid_move?(board, index)
+   if index.between?(0, 8)  && position_taken?(board, index) == false
+     return true
+   else
+     return false
+   end
+ end
+
+ def turn(board)
+   puts "Please enter 1-9:"
+   index = input_to_index(gets.strip)
+   if valid_move?(board, index)
+     move(board, index, current_player(board))
+   else
+     puts "Invalid input."
+     turn(board)
+   end
+   display_board(board)
+ end
 
 end
