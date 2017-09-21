@@ -30,7 +30,7 @@ def display_board
    !(@board[index].nil? || @board[index] == " ")
  end
 
- def valid_move?(index, char)
+ def valid_move?(index)
    if index.between?(0, 8)  && position_taken?(index) == false
      return true
    else
@@ -60,8 +60,8 @@ def display_board
   counter
  end
 
- def current_player(board)
-   if turn_count(board) % 2 == 0
+ def current_player
+   if turn_count % 2 == 0
      "X"
    else
      "O"
