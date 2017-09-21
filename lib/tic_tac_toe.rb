@@ -23,7 +23,7 @@ def display_board(board)
  end
 
  def move(@board, index, char)
-  board[index] = char
+  @board[index] = char
  end
 
  def position_taken?(@board, index)
