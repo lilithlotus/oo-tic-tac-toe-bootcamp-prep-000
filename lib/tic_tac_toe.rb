@@ -113,23 +113,23 @@ def display_board
    end
  end
 
- def winner(board)
-   if won?(board) == false
+ def winner
+   if won? == false
      return nil
-   elsif board[won?(board)[0]] == "X"
+   elsif @board[won?[0]] == "X"
      return "X"
    else
      return "O"
    end
  end
 
- def play(board)
-   while !over?(board)
-     turn(board)
+ def play
+   while !over?
+     turn
    end
-   if won?(board)
+   if won?
      puts "Congratulations #{winner(board)}!"
-   elsif draw?(board)
+   elsif draw?
      puts "Cat's Game!"
    end
 end
