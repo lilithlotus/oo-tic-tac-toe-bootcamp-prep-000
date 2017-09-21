@@ -14,5 +14,16 @@ class TicTacToe
   [2, 4, 6]
 ]
 
+def display_board(board)
+   print " #{board[0]} | #{board[1]} | #{board[2]} \n-----------\n #{board[3]} | #{board[4]} | #{board[5]} \n-----------\n #{board[6]} | #{board[7]} | #{board[8]} \n"
+ end
+
+ def input_to_index(input)
+   index = input.to_i - 1
+ end
+
+ def move(board, index, char)
+  board[index] = char
+ end
 
 end
