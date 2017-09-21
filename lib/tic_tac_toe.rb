@@ -22,15 +22,15 @@ def display_board(@board)
    index = input.to_i - 1
  end
 
- def move(board, index, char)
+ def move(@board, index, char)
   board[index] = char
  end
 
- def position_taken?(board, index)
+ def position_taken?(@board, index)
    !(board[index].nil? || board[index] == " ")
  end
 
- def valid_move?(board, index, char)
+ def valid_move?(@board, index, char)
    if index.between?(0, 8)  && position_taken?(board, index) == false
      return true
    else
@@ -38,7 +38,7 @@ def display_board(@board)
    end
  end
 
- def turn(board)
+ def turn(@board)
    puts "Please enter 1-9:"
    index = input_to_index(gets.strip)
    if valid_move?(board, index)
@@ -50,7 +50,7 @@ def display_board(@board)
    display_board(board)
  end
 
- def turn_count(board)
+ def turn_count(@board)
    counter = 0
    board.each do |plays|
      if plays == "X" || plays == "O"
@@ -60,7 +60,7 @@ def display_board(@board)
   counter
  end
 
- def current_player(board)
+ def current_player(@board)
    if turn_count(board) % 2 == 0
      "X"
    else
@@ -68,7 +68,7 @@ def display_board(@board)
    end
  end
 
- def won?(board)
+ def won?(@board)
    WIN_COMBINATIONS.each do |win_combination|
        win_index_1 = win_combination[0]
        win_index_2 = win_combination[1]
@@ -85,7 +85,7 @@ def display_board(@board)
     false
  end
 
- def full?(board)
+ def full?(@board)
    if  board.include?(" ")
      false
    else
@@ -93,7 +93,7 @@ def display_board(@board)
    end
  end
 
- def draw?(board)
+ def draw?(@board)
    if full?(board) && won?(board) == false
      return true
    else
@@ -101,7 +101,7 @@ def display_board(@board)
    end
  end
 
- def over?(board)
+ def over?(@board)
    if won?(board) || draw?(board)
      return true
    else
@@ -109,7 +109,7 @@ def display_board(@board)
    end
  end
 
- def winner(board)
+ def winner(@board)
    if won?(board) == false
      return nil
    elsif board[won?(board)[0]] == "X"
@@ -119,7 +119,7 @@ def display_board(@board)
    end
  end
 
- def play(board)
+ def play(@board)
    while !over?(board)
      turn(board)
    end
